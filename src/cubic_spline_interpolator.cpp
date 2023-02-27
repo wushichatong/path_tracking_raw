@@ -76,7 +76,6 @@ namespace path_smoothing
 
     for(size_t idx = 1; idx < mDensifiedPath.size(); idx++){
       float dis = calcDistance(mDensifiedPath, idx);
-      // TODO consider shortest angle distance
       float ang = shortest_angular_distance(mDensifiedPath[idx].yaw, mDensifiedPath[idx + 1].yaw);
       float duration_time = 1.5 * std::max(fabs(dis / _x_vel), (double)0.0);
       // printf("dis: %f duration: %f", dis, duration_time);
@@ -91,7 +90,7 @@ namespace path_smoothing
     }
     mAllSegmentsStartTime = Now();
 
-    mAllSegmentsEndTime   = mAllSegmentsStartTime ;// TODO + std::chrono::duration<float, std::chrono::seconds>(mAllSegmentsDuration);
+    mAllSegmentsEndTime   = mAllSegmentsStartTime  + std::chrono::milliseconds(int(mAllSegmentsDuration * 1000));
     return true;
   }
 

@@ -4,8 +4,9 @@
 #include <vector>
 #include <chrono>
 #include <cstdio>
-#define TimeStamp std::chrono::high_resolution_clock::time_point
-#define Now() std::chrono::high_resolution_clock::now()
+#include <string>
+#define TimeStamp std::chrono::steady_clock::time_point
+#define Now() std::chrono::steady_clock::now()
 struct Point3D
 {
     float x = 0.0f;

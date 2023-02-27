@@ -82,7 +82,7 @@ Velocity Controller::update(const Point3D current, const Point3D  goal,
     angle_error += M_PI;
     angle_error *= -1;
   }
-  error_ang.at(0) = normalize_angle(angle_error);  // TODO
+  error_ang.at(0) = normalize_angle(angle_error);  
 
 
   // integrate the error
